@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-    
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
@@ -10,76 +9,68 @@
     <style>
         body {
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #e6f0fa, #ffffff); /* Light gradient */
+            background: #fff;
             color: #222;
             text-align: center;
-            padding: 40px;
-        }
-
-        h2 {
-            margin-bottom: 20px;
-            font-size: 2em;
-            text-shadow: none;
+            margin: 0;
+            padding: 10px;
         }
 
         .timer-container {
-            padding: 30px;
-            border-radius: 15px;
+            padding: 10px;
+            border-radius: 10px;
             display: inline-block;
         }
 
         #timer {
-            font-size: 3.5em;
-            margin: 25px 0;
+            font-size: 2em;
+            margin: 10px 0;
             font-weight: bold;
-            letter-spacing: 2px;
-            padding: 15px 25px;
-            border-radius: 10px;
+            padding: 5px 10px;
+            border-radius: 6px;
             background: #f9f9f9;
-            color: #222;
-            text-shadow: none;
+            border: 1px solid #ccc;
             display: inline-block;
-            border: 2px solid #ddd;
         }
 
         .inputs {
-            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 8px;
         }
 
         .inputs label {
-            margin: 0 10px;
+            font-size: 0.85em;
         }
 
-        input {
-            padding: 8px;
-            font-size: 1.1em;
-            width: 80px;
+        .inputs input {
+            padding: 4px;
+            font-size: 0.9em;
+            width: 50px;
             text-align: center;
-            border-radius: 8px;
+            border-radius: 4px;
             border: 1px solid #ccc;
-            outline: none;
         }
 
         button {
-            padding: 12px 24px;
-            margin: 10px;
-            font-size: 1.1em;
+            padding: 6px 12px;
+            margin: 4px;
+            font-size: 0.9em;
             cursor: pointer;
             border: none;
-            border-radius: 8px;
-            color: #222; /* Dark text by default */
+            border-radius: 6px;
+            color: #222;
             font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            background-color: white; /* Default white button */
+            background-color: #eee;
+            transition: background 0.2s;
         }
 
         button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            background: #ddd;
         }
 
-        /* Active states */
+        /* Active button states */
         #startBtn.active {
             background-color: #4CAF50;
             color: white;
@@ -98,12 +89,11 @@
 </head>
 
 <body>
-
     <div class="timer-container">
         <div class="inputs">
-            <label>Hours: <input type="number" id="hours" value="0" min="0"></label>
-            <label>Minutes: <input type="number" id="minutes" value="0" min="0" max="59"></label>
-            <label>Seconds: <input type="number" id="seconds" value="0" min="0" max="59"></label>
+            <label>H: <input type="number" id="hours" value="0" min="0"></label>
+            <label>M: <input type="number" id="minutes" value="0" min="0" max="59"></label>
+            <label>S: <input type="number" id="seconds" value="0" min="0" max="59"></label>
         </div>
 
         <div id="timer">00:00:00</div>
@@ -124,8 +114,7 @@
             const hrs = Math.floor(time / 3600);
             const mins = Math.floor((time % 3600) / 60);
             const secs = time % 60;
-            const timerEl = document.getElementById("timer");
-            timerEl.innerText =
+            document.getElementById("timer").innerText =
                 `${String(hrs).padStart(2, "0")}:${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
         }
 
@@ -149,10 +138,9 @@
 
             clearInterval(countdown);
             countdown = setInterval(() => {
-                const timerEl = document.getElementById("timer");
                 if (remainingTime <= 0) {
                     clearInterval(countdown);
-                    timerEl.innerText = "TIME'S UP!";
+                    document.getElementById("timer").innerText = "TIME'S UP!";
                     return;
                 }
                 remainingTime--;
@@ -182,5 +170,4 @@
         updateDisplay(0);
     </script>
 </body>
-
 </html>
