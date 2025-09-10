@@ -10,8 +10,8 @@
     <style>
         body {
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: #fff;
+            background: linear-gradient(135deg, #e6f0fa, #ffffff); /* Light gradient */
+            color: #222;
             text-align: center;
             padding: 40px;
         }
@@ -19,15 +19,13 @@
         h2 {
             margin-bottom: 20px;
             font-size: 2em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            text-shadow: none;
         }
 
         .timer-container {
-            background: rgba(0, 0, 0, 0.4);
             padding: 30px;
             border-radius: 15px;
             display: inline-block;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
         }
 
         #timer {
@@ -58,7 +56,7 @@
             width: 80px;
             text-align: center;
             border-radius: 8px;
-            border: none;
+            border: 1px solid #ccc;
             outline: none;
         }
 
@@ -72,13 +70,13 @@
             color: #222; /* Dark text by default */
             font-weight: bold;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             background-color: white; /* Default white button */
         }
 
         button:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
         /* Active states */
